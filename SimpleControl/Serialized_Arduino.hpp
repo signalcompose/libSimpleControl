@@ -18,6 +18,9 @@ namespace SimpleControl {
   /**
    * @brief for Arduino class, alias of __Serialized_Core< uint8_t, size_t >
    *
+   * @example example/Arduino/Serialized_test/Serialized_test.ino
+   * this example tried general functions for serialized SimpleControl data.
+   * also this example tried __Serialized_Core :: __Serialized_Core class functions.
    */
   using Serialized_Arduino = __Serialized_Core :: __Serialized_Core< 
       uint8_t
