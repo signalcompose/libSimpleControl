@@ -1,32 +1,76 @@
-//
-//  Serialized_STL.hpp
-//  Serialized_test
-//
-//  Created by leico_studio on 2019/08/20.
-//  Copyright © 2019 leico_studio. All rights reserved.
-//
+/**
+ *  @file           Serialized_STL.hpp
+ *  @brief          This class provides serialized SimpleControl data implementation for general C++.
+ *  @author         leico
+ *  @date           2019.08.19
+ *  $Version:       0$
+ *  $Revision:      1$
+ *  @par            
+ */
 
 #ifndef SimpleControlSerialized_STL_h
 #define SimpleControlSerialized_STL_h
 
+#include "Serialized_Core.hpp"
 #include <utility>
 #include <type_traits> 
 
-#include "Serialized_Arduino.hpp" 
+#include <cstdint>
+#include <algorithm>
+
 
 namespace SimpleControl{ 
-  
-  class Serialized_STL : public Serialized_Arduino {
+
+  /**
+   * @brief this class delived from __Serialized_Core, and provide some stl extension
+   *
+   * @example Serialized_test/Serialized_test/main.cpp
+   * this example tried below functions with `std :: array`, `std :: vector` and `std :: list`
+   */
+  class Serialized_STL : 
+    public __Serialized_Core :: __Serialized_Core<
+        std :: uint8_t
+      , std :: size_t
+    > {
 
     public:
+    using __Serialized_Core :: __Serialized_Core;
+    using __Serialized_Core :: copy_from;
+    using __Serialized_Core :: copy_to;
+    using __Serialized_Core :: operator=;
 
-    using Serialized_Arduino :: Serialized_Arduino;
 
+    /**
+     * @brief constructor from any class
+     *
+     * @note see copy_from( const T& other )
+     *
+     * This function called default constructor a.k.a __Serialized_Core :: Serialized_Core.
+     * After that copied from other to this serial data. To copy data, we call copy_from ( const T& other )
+     *
+     * @tparam    T       type you want to copy from
+     * @param[in] other   const type T reference, your original data
+     */
     template < typename T > 
     Serialized_STL( const T& other ) : Serialized_STL() { 
       copy_from( other );
     }
 
+
+    /**
+     * @brief serial data copy function from any type
+     *
+     * @note this function required
+     * * resize
+     *   * send array distance size and resize specific distance data size
+     * * begin
+     *   * returned start point iterator
+     * * end
+     *   * returned end point iterator
+     *
+     * @tparam    T      type you want to copy from
+     * @param[in] other  const type T reference, your original data
+     */
     template < typename T > 
     void copy_from( const T& other ){ 
 
@@ -38,13 +82,30 @@ namespace SimpleControl{
 
     }
 
-
+    /**
+     * @brief specialized copy from function for `std :: array`
+     *
+     * @param[in] other `const std :: array< value_type, SIZE >` reference type argument, original data
+     */
     void copy_from( const std :: array< value_type, SIZE >& other){ 
       std :: copy( other.begin(), other.end(), begin() );
     }
 
 
-
+    /**
+     * @brief copy serial data to another class function 
+     *
+     * @note this function required
+     * * resize
+     *   * send array distance size and resize specific distance data size
+     * * clear
+     *   * delete or reset all data
+     * * begin
+     *   * returned start point iterator
+     *
+     * @tparam      T     type you want to copy to
+     * @param[out]  other type T reference, your target data
+     */
     template < typename T >
     void copy_to( T& other ){ 
 
@@ -56,16 +117,40 @@ namespace SimpleControl{
     }
 
 
+    /**
+     * @brief specialized copy to functon for `std :: array`
+     *
+     * @param[out] other `std :: array< value_type, SIZE >` type argument, copy target
+     */
     void copy_to( std :: array< value_type, SIZE >& other ){ 
       std :: copy( begin(), end(), other.begin() );
     }
 
-    using Serialized_Arduino :: copy_from;
-    using Serialized_Arduino :: copy_to;
+
+    /**
+     * @brief copy data from any class
+     *
+     * @note see copy_from(const T& other)
+     *
+     * @tparam       T     type you want to copy from
+     * @param[in]    other const type T reference, your original data
+     * @return             returned this class reference
+     */
+    template < typename T > 
+    Serialized_STL& operator= ( const T& other ){ 
+      copy_from( other );
+      return *this;
+    }
 
 
-
-
+    /**
+     * @brief octet accessor with out of range check
+     *
+     * @note if access over range, this function throw `std :: out_of_range`
+     *
+     * @param[in] n     position of data octet
+     * @return          reference of data octet, you can change specific octet data
+     */
     value_type& at( const size_type n ) & {
       
       if( n >= SIZE )
@@ -74,6 +159,14 @@ namespace SimpleControl{
       return operator[] ( std :: forward< const size_type >( n ) );
     }
 
+    /**
+     * @brief octet accessor with out of range check
+     *
+     * @note if access over range, this function throw `std :: out_of_range`
+     *
+     * @param[in] n     position of data octet
+     * @return          const octet data, you don't change return value
+     */
     const value_type at( const size_type n ) const& {
 
       if( n >= SIZE )
@@ -84,6 +177,14 @@ namespace SimpleControl{
       
     }
 
+    /**
+     * @brief octet accessor with out of range check
+     *
+     * @note if access over range, this function throw `std :: out_of_range`
+     *
+     * @param[in] n     position of data octet
+     * @return          octet data, you can change return value but couldn't change raw data
+     */
     value_type at( const size_type n ) && { 
 
       if( n >= SIZE )
@@ -91,9 +192,6 @@ namespace SimpleControl{
 
       return operator[] ( std :: forward< const size_type >( n ) );
     }
-
-
-
 
   };
 }

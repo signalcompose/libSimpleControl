@@ -1,0 +1,100 @@
+\hypertarget{_serialized_test_2_serialized_test_2main_8cpp-example}{}\doxysection{Serialized\+\_\+test/\+Serialized\+\_\+test/main.\+cpp}
+this class delived from \+\_\+\+\_\+\+Serialized\+\_\+\+Core, and provide some stl extensionthis example tried below functions with {\ttfamily std \+:: array}, {\ttfamily std \+:: vector} and {\ttfamily std \+:: list}
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{\textcolor{comment}{//  main.cpp}}
+\DoxyCodeLine{\textcolor{comment}{//  Serializer\_test}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{\textcolor{comment}{//  Created by leico\_studio on 2019/08/17.}}
+\DoxyCodeLine{\textcolor{comment}{//  Copyright © 2019 leico\_studio. All rights reserved.}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <array>} }
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{_serialized_8hpp}{Serialized.hpp}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }dummy\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  std :: size\_t size( \textcolor{keywordtype}{void} )\{ \textcolor{keywordflow}{return} 10; \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using} \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{SimpleControl :: Serialized}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} print( \textcolor{keyword}{const} Serialized :: value\_type value )\{}
+\DoxyCodeLine{  std :: cout << static\_cast< int >( value ) << std :: endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} bool\_print( \textcolor{keyword}{const} \textcolor{keywordtype}{bool} value )\{ }
+\DoxyCodeLine{  std :: cout << std :: boolalpha << value << std :: endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main( \textcolor{keywordtype}{void} ) \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} default\_constructor\_test;}
+\DoxyCodeLine{    print(default\_constructor\_test[ 2 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} copy\_constructor\_test( default\_constructor\_test );}
+\DoxyCodeLine{    print(copy\_constructor\_test[ 4 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    Serialized :: value\_type array[ Serialized :: SIZE ] = \{ 1, 2, 3, 4, 5 \};}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} array\_constructor\_test( array );}
+\DoxyCodeLine{    print(array\_constructor\_test[ 1 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std :: vector< Serialized :: value\_type > vec\{ 1, 2, 3, 4, 5, 6, 7 \};}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} vec\_constructor\_test( vec );}
+\DoxyCodeLine{    print(vec\_constructor\_test[ 4 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std :: array< Serialized :: value\_type, Serialized :: SIZE > arr\{ 1, 2, 3, 4, 5 \};}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} arr\_constructor\_test( arr );}
+\DoxyCodeLine{    print(array\_constructor\_test[ 0 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std :: list< Serialized :: value\_type > list\{ 1, 2, 3, 4, 5, 6 \};}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} list\_constructor\_test( list );}
+\DoxyCodeLine{    print(list\_constructor\_test[ 3 ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//dummy d;}}
+\DoxyCodeLine{    \textcolor{comment}{//Serialized custom\_class\_test( d );}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} arr = \{ 1, 2, 3, 4, 5 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{try}\{ }
+\DoxyCodeLine{    \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 0 ; i != Serialized :: SIZE + 1 ; ++ i )}
+\DoxyCodeLine{      print( arr.at( i ) );}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordflow}{catch}( std :: out\_of\_range\& e )\{ }
+\DoxyCodeLine{    std :: cout << e.what() << std :: endl;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} address\_test\{ 128, 134, 158, 128, 0b11110110 \};}
+\DoxyCodeLine{  bool\_print( address\_test.is\_correct() );}
+\DoxyCodeLine{  bool\_print( address\_test.is\_address() );}
+\DoxyCodeLine{  bool\_print( address\_test.is\_data   () );}
+\DoxyCodeLine{ }
+\DoxyCodeLine{}
+\DoxyCodeLine{  \mbox{\hyperlink{namespace_simple_control_ab735d763d63f9ba37fc36fb7cbe276b0}{Serialized}} data\_test\{ 100, 127, 50, 79, 0b01110010 \};}
+\DoxyCodeLine{  bool\_print( data\_test.is\_correct() );}
+\DoxyCodeLine{  bool\_print( data\_test.is\_address() );}
+\DoxyCodeLine{  bool\_print( data\_test.is\_data   () );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 

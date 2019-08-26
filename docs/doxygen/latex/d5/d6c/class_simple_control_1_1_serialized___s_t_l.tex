@@ -1,0 +1,338 @@
+\hypertarget{class_simple_control_1_1_serialized___s_t_l}{}\doxysection{Simple\+Control\+::Serialized\+\_\+\+S\+TL Class Reference}
+\label{class_simple_control_1_1_serialized___s_t_l}\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+
+
+Inheritance diagram for Simple\+Control\+::Serialized\+\_\+\+S\+TL\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{df/dac/class_simple_control_1_1_serialized___s_t_l__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Simple\+Control\+::Serialized\+\_\+\+S\+TL\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{df/dae/class_simple_control_1_1_serialized___s_t_l__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a49be311af45fe7f75b53f4753fced67f}{Serialized\+\_\+\+S\+TL}} (const T \&other)
+\begin{DoxyCompactList}\small\item\em constructor from any class \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513}{copy\+\_\+from}} (const T \&other)
+\begin{DoxyCompactList}\small\item\em serial data copy function from any type \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a9cce29e7b7d96c21b59fda868486ee16}{copy\+\_\+from}} (const std \+::array$<$ value\+\_\+type, S\+I\+ZE $>$ \&other)
+\begin{DoxyCompactList}\small\item\em specialized copy from function for {\ttfamily std \+:: array} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a01351c1f389aad12ce91c77c61debaf5}{copy\+\_\+to}} (T \&other)
+\begin{DoxyCompactList}\small\item\em copy serial data to another class function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a84817d17a2158e3eff3eb3e90f8d9945}{copy\+\_\+to}} (std \+::array$<$ value\+\_\+type, S\+I\+ZE $>$ \&other)
+\begin{DoxyCompactList}\small\item\em specialized copy to functon for {\ttfamily std \+:: array} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l}{Serialized\+\_\+\+S\+TL}} \& \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a87823ee826731cb76f4a0f5728e5801f}{operator=}} (const T \&other)
+\begin{DoxyCompactList}\small\item\em copy data from any class \end{DoxyCompactList}\item 
+value\+\_\+type \& \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_adf854354fa65e09747d8792849d7f7b7}{at}} (const size\+\_\+type n) \&
+\begin{DoxyCompactList}\small\item\em octet accessor with out of range check \end{DoxyCompactList}\item 
+const value\+\_\+type \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a73596c2260472695333b9325a4cfcf26}{at}} (const size\+\_\+type n) const \&
+\begin{DoxyCompactList}\small\item\em octet accessor with out of range check \end{DoxyCompactList}\item 
+value\+\_\+type \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_afb7bebebc86d6d1cbe60061577528c36}{at}} (const size\+\_\+type n) \&\&
+\begin{DoxyCompactList}\small\item\em octet accessor with out of range check \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 30 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a49be311af45fe7f75b53f4753fced67f}\label{class_simple_control_1_1_serialized___s_t_l_a49be311af45fe7f75b53f4753fced67f}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!Serialized\_STL@{Serialized\_STL}}
+\index{Serialized\_STL@{Serialized\_STL}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{Serialized\_STL()}{Serialized\_STL()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::\+Serialized\+\_\+\+S\+TL (\begin{DoxyParamCaption}\item[{const T \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor from any class 
+
+\begin{DoxyNote}{Note}
+see \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513}{copy\+\_\+from( const T\& other )}}
+\end{DoxyNote}
+This function called default constructor a.\+k.\+a \mbox{\hyperlink{namespace_simple_control_1_1_____serialized___core}{\+\_\+\+\_\+\+Serialized\+\_\+\+Core}} \+:: Serialized\+\_\+\+Core. After that copied from other to this serial data. To copy data, we call copy\+\_\+from ( const T\& other )
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type you want to copy from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & const type T reference, your original data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d6c/class_simple_control_1_1_serialized___s_t_l_a49be311af45fe7f75b53f4753fced67f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_adf854354fa65e09747d8792849d7f7b7}\label{class_simple_control_1_1_serialized___s_t_l_adf854354fa65e09747d8792849d7f7b7}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!at@{at}}
+\index{at@{at}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily value\+\_\+type\& Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::at (\begin{DoxyParamCaption}\item[{const size\+\_\+type}]{n }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+octet accessor with out of range check 
+
+\begin{DoxyNote}{Note}
+if access over range, this function throw {\ttfamily std \+:: out\+\_\+of\+\_\+range}
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & position of data octet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference of data octet, you can change specific octet data 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_afb7bebebc86d6d1cbe60061577528c36}\label{class_simple_control_1_1_serialized___s_t_l_afb7bebebc86d6d1cbe60061577528c36}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!at@{at}}
+\index{at@{at}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily value\+\_\+type Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::at (\begin{DoxyParamCaption}\item[{const size\+\_\+type}]{n }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+octet accessor with out of range check 
+
+\begin{DoxyNote}{Note}
+if access over range, this function throw {\ttfamily std \+:: out\+\_\+of\+\_\+range}
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & position of data octet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+octet data, you can change return value but couldn\textquotesingle{}t change raw data 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a73596c2260472695333b9325a4cfcf26}\label{class_simple_control_1_1_serialized___s_t_l_a73596c2260472695333b9325a4cfcf26}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!at@{at}}
+\index{at@{at}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily const value\+\_\+type Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::at (\begin{DoxyParamCaption}\item[{const size\+\_\+type}]{n }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+octet accessor with out of range check 
+
+\begin{DoxyNote}{Note}
+if access over range, this function throw {\ttfamily std \+:: out\+\_\+of\+\_\+range}
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & position of data octet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const octet data, you don\textquotesingle{}t change return value 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a9cce29e7b7d96c21b59fda868486ee16}\label{class_simple_control_1_1_serialized___s_t_l_a9cce29e7b7d96c21b59fda868486ee16}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!copy\_from@{copy\_from}}
+\index{copy\_from@{copy\_from}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{copy\_from()}{copy\_from()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::copy\+\_\+from (\begin{DoxyParamCaption}\item[{const std \+::array$<$ value\+\_\+type, S\+I\+ZE $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+specialized copy from function for {\ttfamily std \+:: array} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & {\ttfamily const std \+:: array$<$ value\+\_\+type, S\+I\+ZE $>$} reference type argument, original data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513}\label{class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!copy\_from@{copy\_from}}
+\index{copy\_from@{copy\_from}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{copy\_from()}{copy\_from()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::copy\+\_\+from (\begin{DoxyParamCaption}\item[{const T \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+serial data copy function from any type 
+
+\begin{DoxyNote}{Note}
+this function required
+\begin{DoxyItemize}
+\item resize
+\begin{DoxyItemize}
+\item send array distance size and resize specific distance data size
+\end{DoxyItemize}
+\item begin
+\begin{DoxyItemize}
+\item returned start point iterator
+\end{DoxyItemize}
+\item end
+\begin{DoxyItemize}
+\item returned end point iterator
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type you want to copy from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & const type T reference, your original data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d6c/class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a84817d17a2158e3eff3eb3e90f8d9945}\label{class_simple_control_1_1_serialized___s_t_l_a84817d17a2158e3eff3eb3e90f8d9945}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!copy\_to@{copy\_to}}
+\index{copy\_to@{copy\_to}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{copy\_to()}{copy\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::copy\+\_\+to (\begin{DoxyParamCaption}\item[{std \+::array$<$ value\+\_\+type, S\+I\+ZE $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+specialized copy to functon for {\ttfamily std \+:: array} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em other} & {\ttfamily std \+:: array$<$ value\+\_\+type, S\+I\+ZE $>$} type argument, copy target \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a01351c1f389aad12ce91c77c61debaf5}\label{class_simple_control_1_1_serialized___s_t_l_a01351c1f389aad12ce91c77c61debaf5}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!copy\_to@{copy\_to}}
+\index{copy\_to@{copy\_to}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{copy\_to()}{copy\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::copy\+\_\+to (\begin{DoxyParamCaption}\item[{T \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy serial data to another class function 
+
+\begin{DoxyNote}{Note}
+this function required
+\begin{DoxyItemize}
+\item resize
+\begin{DoxyItemize}
+\item send array distance size and resize specific distance data size
+\end{DoxyItemize}
+\item clear
+\begin{DoxyItemize}
+\item delete or reset all data
+\end{DoxyItemize}
+\item begin
+\begin{DoxyItemize}
+\item returned start point iterator
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type you want to copy to \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em other} & type T reference, your target data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 110 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+\mbox{\Hypertarget{class_simple_control_1_1_serialized___s_t_l_a87823ee826731cb76f4a0f5728e5801f}\label{class_simple_control_1_1_serialized___s_t_l_a87823ee826731cb76f4a0f5728e5801f}} 
+\index{SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}!operator=@{operator=}}
+\index{operator=@{operator=}!SimpleControl::Serialized\_STL@{SimpleControl::Serialized\_STL}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l}{Serialized\+\_\+\+S\+TL}}\& Simple\+Control\+::\+Serialized\+\_\+\+S\+T\+L\+::operator= (\begin{DoxyParamCaption}\item[{const T \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy data from any class 
+
+\begin{DoxyNote}{Note}
+see \mbox{\hyperlink{class_simple_control_1_1_serialized___s_t_l_a595ae86dc64d379e2d055527a1a6e513}{copy\+\_\+from(const T\& other)}}
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type you want to copy from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & const type T reference, your original data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returned this class reference 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Serialized\+\_\+\+S\+T\+L.\+hpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d6c/class_simple_control_1_1_serialized___s_t_l_a87823ee826731cb76f4a0f5728e5801f_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Simple\+Control/\mbox{\hyperlink{_serialized___s_t_l_8hpp}{Serialized\+\_\+\+S\+T\+L.\+hpp}}\end{DoxyCompactItemize}

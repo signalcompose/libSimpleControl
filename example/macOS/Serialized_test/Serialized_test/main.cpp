@@ -13,18 +13,29 @@
 
 #include "Serialized.hpp"
 
-
+/**
+ * @brief dummy class to check copy function
+ */
 class dummy{
 
   std :: size_t size( void ){ return 10; }
 };
 
+
+
 using SimpleControl :: Serialized;
 
+
+/**
+ * @brief a function for output function result
+ */
 void print( const Serialized :: value_type value ){
   std :: cout << static_cast< int >( value ) << std :: endl;
 }
 
+/**
+ * @brief a function for output boolean result
+ */
 void bool_print( const bool value ){ 
   std :: cout << std :: boolalpha << value << std :: endl;
 }
