@@ -1,0 +1,63 @@
+\hypertarget{_arduino_2_serialized_test_2_serialized_test_8ino-example}{}\doxysection{Arduino/\+Serialized\+\_\+test/\+Serialized\+\_\+test.\+ino}
+for Arduino class, alias of \+\_\+\+\_\+\+Serialized\+\_\+\+Core$<$ uint8\+\_\+t, size\+\_\+t $>$this example tried general functions for serialized \mbox{\hyperlink{namespace_simple_control}{Simple\+Control}} data. also this example tried \+\_\+\+\_\+\+Serialized\+\_\+\+Core \+:: \+\_\+\+\_\+\+Serialized\+\_\+\+Core class functions.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include "Serialized.hpp"}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup( void )\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.begin( 9600 );}
+\DoxyCodeLine{  delay( 100 );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  using SimpleControl :: Serialized;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized :: value\_type array[ Serialized :: SIZE ] = \{ 1, 2, 3, 4, 5 \};}
+\DoxyCodeLine{  Serialized array\_test( array );}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  Serialized copy\_test = array\_test;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  for( Serialized :: iterator it = copy\_test.begin(), ep = copy\_test.end() ;}
+\DoxyCodeLine{      it != ep ; ++ it )}
+\DoxyCodeLine{    Serial.print( *it );}
+\DoxyCodeLine{  Serial.print('\(\backslash\)n');}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("-\/-\/-\/-\/-\/");}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized initial\_test\{ 5, 4, 3, 2, 1 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized copy\_from\_test;}
+\DoxyCodeLine{  copy\_from\_test.copy\_from( initial\_test );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized copy\_to\_test\{ 'a', 'b', 'c', 'd', 'e'\};}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  copy\_to\_test.copy\_to( copy\_from\_test );}
+\DoxyCodeLine{ }
+\DoxyCodeLine{  for( int i = 0 ; i < Serialized :: SIZE ; ++ i )}
+\DoxyCodeLine{    Serial.print( copy\_from\_test[ i ] );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print( '\(\backslash\)n' );}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  Serial.println( "-\/-\/-\/-\/" );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized data\_test\{ 100, 127, 83, 0, 0b01110000 \};}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  Serial.print( data\_test.is\_correct() );}
+\DoxyCodeLine{  Serial.print( data\_test.is\_address() );}
+\DoxyCodeLine{  Serial.print( data\_test.is\_data   () );}
+\DoxyCodeLine{  Serial.print( '\(\backslash\)n' );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serialized address\_test\{ 128, 196, 135, 255, 0b11110000 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print( address\_test.is\_correct() );}
+\DoxyCodeLine{  Serial.print( address\_test.is\_address() );}
+\DoxyCodeLine{  Serial.print( address\_test.is\_data   () );}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print( '\(\backslash\)n' );}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop( void )\{ }
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 
