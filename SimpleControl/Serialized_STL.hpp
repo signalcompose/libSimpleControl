@@ -17,6 +17,7 @@
 
 #include <cstdint>
 #include <algorithm>
+#include <array> 
 
 
 namespace SimpleControl{ 
