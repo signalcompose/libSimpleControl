@@ -19,13 +19,6 @@ namespace SimpleControl {
       , typename Iter      =       ValueType*
       , typename ConstIter = const ValueType* 
     > 
-    class __SimpleControl_Core;
-
-#   ifdef Arduino_h
-      template < uint8_t, size_t >
-#   else
-      template <std :: uint8_t, std :: size_t>
-#   endif
     class __SimpleControl_Core
     {
 
@@ -49,7 +42,7 @@ namespace SimpleControl {
       public:
       
       __SimpleControl_Core( const value_type& value = 0 ) : 
-        _data._value(value)
+        _data{value}
       {}
 
       __SimpleControl_Core( const octet_type (&array)[ SIZE ] ) :
@@ -85,7 +78,7 @@ namespace SimpleControl {
       /**
        * @brief decode value from Serialized class
        *
-       * @param[in] data source of `Serialized` class
+       * @param[in] serialdata source of `Serialized` class
        *
        *
        * ### inspection
@@ -202,25 +195,33 @@ namespace SimpleControl {
        *
        * @brief encode value to Serialized class
        *
-       * @param[out] store of `Serialized` class
+       * @param[out] output of `Serialized` class
        *
        *
        * ### inspection
        *
        * ```
        * serial data byte   lower byte process                       upper byte process
-       *                    data byte     bitmask       bit shift    data byte     bit mask      bit shift
+       *                    data byte        bitmask     bit shift    data byte        bit mask    bit shift
        * ---------------------------------------------------------------------------------------------------
-       *         data(01) = databyte[ 0 ] & 0b0111 1111 >>       0 | databyte[ * ] & 0b0000 0000 <<      0
-       *         data(02) = databyte[ 0 ] & 0b1000 0000 >>       7 | databyte[ 1 ] & 0b0011 1111 <<      1
-       *         data(03) = databyte[ 1 ] & 0b1100 0000 >>       6 | databyte[ 2 ] & 0b0001 1111 <<      2
-       *         data(04) = databyte[ 2 ] & 0b1110 0000 >>       5 | databyte[ 3 ] & 0b0000 1111 <<      3
-       *         data(05) = databyte[ 3 ] & 0b1111 0000 >>       4 | databyte[ 4 ] & 0b0000 0111 <<      4
-       *         data(06) = databyte[ 4 ] & 0b1111 1000 >>       3 | databyte[ 5 ] & 0b0000 0011 <<      5
-       *         data(07) = databyte[ 5 ] & 0b1111 1100 >>       2 | databyte[ 6 ] & 0b0000 0001 <<      6
-       *         data(08) = databyte[ 6 ] & 0b1111 1110 >>       1 | databyte[ 7 ] & 0b0000 0000 <<      7
-       *         data(09) = databyte[ 7 ] & 0b0111 1111 >>       0 | databyte[ * ] & 0b0000 0000 <<      0
-       *         data(10) = databyte[ 7 ] & 0b1000 0000 >>       7 | databyte[ 8 ] & 0b0011 1111 <<      1
+       *         data(01) = databyte[  0 ] & 0b0111 1111 >>       0 | databyte[  * ] & 0b0000 0000 <<      *
+       *         data(02) = databyte[  0 ] & 0b1000 0000 >>       7 | databyte[  1 ] & 0b0011 1111 <<      1
+       *         data(03) = databyte[  1 ] & 0b1100 0000 >>       6 | databyte[  2 ] & 0b0001 1111 <<      2
+       *         data(04) = databyte[  2 ] & 0b1110 0000 >>       5 | databyte[  3 ] & 0b0000 1111 <<      3
+       *         data(05) = databyte[  3 ] & 0b1111 0000 >>       4 | databyte[  4 ] & 0b0000 0111 <<      4
+       *         data(06) = databyte[  4 ] & 0b1111 1000 >>       3 | databyte[  5 ] & 0b0000 0011 <<      5
+       *         data(07) = databyte[  5 ] & 0b1111 1100 >>       2 | databyte[  6 ] & 0b0000 0001 <<      6
+       *         data(08) = databyte[  6 ] & 0b1111 1110 >>       1 | databyte[  * ] & 0b0000 0000 <<      *
+       *         data(09) = databyte[  7 ] & 0b0111 1111 >>       0 | databyte[  * ] & 0b0000 0000 <<      *
+       *         data(10) = databyte[  7 ] & 0b1000 0000 >>       7 | databyte[  8 ] & 0b0011 1111 <<      1
+       *         data(11) = databyte[  8 ] & 0b1100 0000 >>       6 | databyte[  9 ] & 0b0001 1111 <<      2
+       *         data(12) = databyte[  9 ] & 0b1110 0000 >>       5 | databyte[ 10 ] & 0b0000 1111 <<      3
+       *         data(13) = databyte[ 10 ] & 0b1111 0000 >>       4 | databyte[ 11 ] & 0b0000 0111 <<      4
+       *         data(14) = databyte[ 11 ] & 0b1111 1000 >>       3 | databyte[ 12 ] & 0b0000 0011 <<      5
+       *         data(15) = databyte[ 12 ] & 0b1111 1100 >>       2 | databyte[ 13 ] & 0b0000 0001 <<      6
+       *         data(16) = databyte[ 13 ] & 0b1111 1110 >>       1 | databyte[  * ] & 0b0000 0000 <<      *
+       *         data(17) = databyte[ 14 ] & 0b0111 1111 >>       0 | databyte[  * ] & 0b0000 0000 <<      *
+       *         data(18) = databyte[ 14 ] & 0b1000 0000 >>       7 | databyte[ 15 ] & 0b0011 1111 <<      1
        * ```
        *
        * ### upper byte mask
@@ -229,20 +230,49 @@ namespace SimpleControl {
        * index: upper byte mask   -> + 0000 0001    <-  (0000 0001 << (7 - (index % 8))) & 0111 1111 +     <- index:  0000 0001 << (7 - (index % 8))
        *                                                (0000 0001 << (7 - (index % 8))) & 1000 0000 >> 7
        * -----------------------    ---------------     -------------------------------------------------     ---------------------------------------
-       *     0: 0000 0000              0000 0001                     0000 0001                                    0:  1000 0000
-       *     1: 0011 1111              0100 0000                     0100 0000                                    1:  0100 0000
-       *     2: 0001 1111              0010 0000                     0010 0000                                    2:  0010 0000
-       *     3: 0000 1111              0001 0000                     0001 0000                                    3:  0001 0000
-       *     4: 0000 0111              0000 1000                     0000 1000                                    4:  0000 1000
-       *     5: 0000 0011              0000 0100                     0000 0100                                    5:  0000 0100
-       *     6: 0000 0001              0000 0010                     0000 0010                                    6:  0000 0010
-       *     7: 0000 0000              0000 0001                     0000 0001                                    7:  0000 0001
-       *     8: 0000 0000              0000 0001                     0000 0001                                    8:  1000 0000
-       *     9: 0011 1111              0100 0000                     0100 0000                                    9:  0100 0000
+       *     0: 0000 0000              0000 0001                     0000 0001                                    0:  1000 0000                      
+       *     1: 0011 1111              0100 0000                     0100 0000                                    1:  0100 0000                      
+       *     2: 0001 1111              0010 0000                     0010 0000                                    2:  0010 0000                      
+       *     3: 0000 1111              0001 0000                     0001 0000                                    3:  0001 0000                      
+       *     4: 0000 0111              0000 1000                     0000 1000                                    4:  0000 1000                      
+       *     5: 0000 0011              0000 0100                     0000 0100                                    5:  0000 0100                      
+       *     6: 0000 0001              0000 0010                     0000 0010                                    6:  0000 0010                      
+       *     7: 0000 0000              0000 0001                     0000 0001                                    7:  0000 0001                      
+       *     8: 0000 0000              0000 0001                     0000 0001                                    8:  1000 0000                      
+       *     9: 0011 1111              0100 0000                     0100 0000                                    9:  0100 0000                      
        * ```
        *
        *                     bit = 0000 0001 << (7 - (index % 8))
        * upper byte mask = ( bit & 0111 1111 +  (bit & 1000 0000) >> 7 ) - 1
+       *
+       *
+       * ### lower byte mask
+       *
+       * ```
+       * index: lower byte mask  ->  << index % 8 == 0 ? 1 : 0    <-  index % 8 == 0 ? ~(upper byte mask + 1) :  <-    + 0000 0001   <-  index: upper byte mask 
+       *                                                                ~((upper byte mask + 1 << 1) - 1)              
+       * ----------------------     -----------------------------     ------------------------------------------    ---------------      -----------------------
+       *     0: 0111 1111            00: 1111 1110 (<< 1)              00:   1111 1110 ~(0000 0001)                 00:  0000 0001        00: 0000 0000       
+       *     1: 1000 0000            01: 1000 0000                     01:   1000 0000   ~(0111 1111)               01:  0100 0000        01: 0011 1111       
+       *     2: 1100 0000            02: 1100 0000                     02:   1100 0000   ~(0011 1111)               02:  0010 0000        02: 0001 1111       
+       *     3: 1110 0000            03: 1110 0000                     03:   1110 0000   ~(0001 1111)               03:  0001 0000        03: 0000 1111       
+       *     4: 1111 0000            04: 1111 0000                     04:   1111 0000   ~(0000 1111)               04:  0000 1000        04: 0000 0111       
+       *     5: 1111 1000            05: 1111 1000                     05:   1111 1000   ~(0000 0111)               05:  0000 0100        05: 0000 0011       
+       *     6: 1111 1100            06: 1111 1100                     06:   1111 1100   ~(0000 0011)               06:  0000 0010        06: 0000 0001       
+       *     7: 1111 1110            07: 1111 1110                     07:   1111 1110   ~(0000 0001)               07:  0000 0001        07: 0000 0000       
+       *     8: 0111 1111            08: 1111 1110 (<< 1)              08:   1111 1110 ~(0000 0001)                 08:  0000 0001        08: 0000 0000       
+       *     9: 1000 0000            09: 1000 0000                     09:   1000 0000   ~(0111 1111)               09:  0100 0000        09: 0011 1111 
+       *    10: 1100 0000            10: 1100 0000                     10:   1100 0000   ~(0011 1111)               10:  0010 0000        10: 0001 1111
+       *    11: 1110 0000            11: 1110 0000                     11:   1110 0000   ~(0001 1111)               11:  0001 0000        11: 0000 1111
+       *    12: 1111 0000            12: 1111 0000                     12:   1111 0000   ~(0000 1111)               12:  0000 1000        12: 0000 0111
+       *    13: 1111 1000            13: 1111 1000                     13:   1111 1000   ~(0000 0111)               13:  0000 0100        13: 0000 0011
+       *    14: 1111 1100            14: 1111 1100                     14:   1111 1100   ~(0000 0011)               14:  0000 0010        14: 0000 0001
+       *    15: 1111 1110            15: 1111 1110                     15:   1111 1110   ~(0000 0001)               15:  0000 0001        15: 0000 0000
+       *    16: 0111 1111            16: 1111 1110 (<< 1)              16:   1111 1110 ~(0000 0001)                 16:  0000 0001        16: 0000 0000
+       * ```
+       *
+       * lower byte mask = index % 8 == 0 ? ~(upper byte mask + 1) >> 1 : ~(upper byte mask + 1 << 1 - 1);
+       *
        *
        *
        * ### upper byte array index
@@ -257,7 +287,7 @@ namespace SimpleControl {
        *     4 : 4                 4
        *     5 : 5                 5
        *     6 : 6                 6
-       *     7 : 7                 7
+       *     7 : *                 7
        *     8 : *                 8
        *     9 : 8                 8
        *    10 : 9                 9
@@ -265,7 +295,7 @@ namespace SimpleControl {
        *    12 : 11               11
        *    13 : 12               12
        *    14 : 13               13
-       *    15 : 14               14
+       *    15 : *                14
        *    16 : *                15
        *    17 : 15               15
        *    18 : 16               16
@@ -275,49 +305,69 @@ namespace SimpleControl {
        *
        * upper byte index = index - (index - 1) / 8
        *
+       *
+       *
+       * ### lower byte array index
+       *
+       * ```
+       *
+       * index:  array index   ->  index - 1: array index  ->  index: index == 0 ? 0 : index - (index - 1) / 8 - 1
+       * --------------------      -----------------------     -------------------------------
+       *     0:   0    0                  -1:  0   +1              0:  0
+       *     1:   0   -1                   0:  0   -0              1:  0
+       *     2:   1                        1:  1                   2:  1
+       *     3:   2                        2:  2                   3:  2
+       *     4:   3                        3:  3                   4:  3
+       *     5:   4                        4:  4                   5:  4
+       *     6:   5                        5:  5                   6:  5
+       *     7:   6                        6:  6                   7:  6
+       *     8:   7                        7:  7                   8:  7
+       *     9:   7   -2                   8:  7   -1              9:  7
+       *    10:   8                        9:  8                  10:  8
+       *    11:   9                       10:  9                  11:  9
+       *    12:  10                       11: 10                  12: 10
+       *    13:  11                       12: 11                  13: 11
+       *    14:  12                       13: 12                  14: 12
+       *    15:  13                       14: 13                  15: 13
+       *    16:  14                       15: 14                  16: 14
+       *    17:  14   -3                  16: 14   -2             17: 14
+       * ```
+       *
+       * lower byte index = index == 0 ? 0 : index - (index - 1) / 8 - 1
+       *
+       *
        */
 
       void serial_encode( Serialized& output ){
 
 
-        constexpr octet_type bit_1 = 0b00000001;
+        constexpr octet_type bit_1     = 0b00000001;
+        constexpr octet_type bit_7     = 0b01111111;
+        constexpr octet_type bit_top_1 = 0b10000000;
 
-        octet_type msb;
-        octet_type lsb;
-        octet_type pos;
-        octet_type carry = 0;
+        constexpr octet_type octet_bit = sizeof( octet_type ) * 8 - 1;
 
-        for( size_type it = 0 ; it != SIZE ; ++ it ){
+        for( size_type it = 0 ; it < Serialized :: SIZE ; ++ it ){
 
-          const octet_type calc = ~( bit_1 << ( ( 6 + it ) % 7 ) ) << 1;
-          msb = ~calc + 0b00000010;
-          lsb = (calc - 0b01111111) << 1;
+          const octet_type bit             = bit_1 << ( 7 - (it % 8) );
+          const octet_type intermediate    = bit & bit_7 + ( (bit & bit_top_1) >> 7 );
+          const octet_type upper_byte_mask = intermediate - 1;
+          const octet_type lower_byte_mask = (it % 8 == 0) ? (~intermediate >> 1) : (~(intermediate << 1 - 1));
 
-          pos = it - ((it + 7) / 8);
+          const octet_type upper_byte_index = it - (it - 1) / 8;
+          const octet_type lower_byte_index = it == 0 ? 0 : upper_byte_index - 1;
 
-          output[ it ] =  _data._octet[ pos ] & msb |  _data._octet[ pos + 1 ] & lsb;
+          const octet_type upper_byte = _data._octet[ upper_byte_index ] & upper_byte_mask >> it ;
+          const octet_type lower_byte = _data._octet[ lower_byte_index ] & lower_byte_mask << (octet_bit - it) ;
 
-
-
+          output[ it ] = upper_byte | lower_byte;
         }
-/*
-        byte1  = _data._octet[ 0 ] & 0b1111 1110 | _data._octet[ 1 ] & 0b0000 0000;
-        byte2  = _data._octet[ 0 ] & 0b0000 0001 | _data._octet[ 1 ] & 0b1111 1100;
-        byte3  = _data._octet[ 1 ] & 0b0000 0011 | _data._octet[ 2 ] & 0b1111 1000;
-        byte4  = _data._octet[ 2 ] & 0b0000 0111 | _data._octet[ 3 ] & 0b1111 0000;
-        byte5  = _data._octet[ 3 ] & 0b0000 1111 | _data._octet[ 4 ] & 0b1110 0000;
-        byte6  = _data._octet[ 4 ] & 0b0001 1111 | _data._octet[ 5 ] & 0b1100 0000;
-        byte7  = _data._octet[ 5 ] & 0b0011 1111 | _data._octet[ 6 ] & 0b1000 0000;
-        byte8  = _data._octet[ 6 ] & 0b0111 1111 | _data._octet[ 7 ] & 0b0000 0000;
-        byte9  = _data._octet[ 7 ] & 0b1111 1110 | _data._octet[ 8 ] & 0b0000 0000;
-        byte10 = _data._octet[ 7 ] & 0b0000 0001 | _data._octet[ 8 ] & 0b1111 1100;
-*/           
-        
+
       }
 
       
 
-      protected;
+      protected:
       bool octet_copy( const_iterator begin, const_iterator end, iterator target_begin ){
         
         if( end < begin ) 

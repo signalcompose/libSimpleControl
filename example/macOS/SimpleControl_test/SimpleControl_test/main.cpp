@@ -7,6 +7,7 @@
 //
 
 #include "Serialized.hpp" 
+#include "SimpleControl.hpp"
 
 int main(int argc, const char * argv[]) {
 
