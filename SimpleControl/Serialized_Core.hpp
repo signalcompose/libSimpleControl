@@ -719,7 +719,7 @@ namespace SimpleControl {
            * ### header 
            *
            * | address      | data         |
-           * | ============ | ============ |
+           * | ------------ | ------------ |
            * | `0b1*******` | `0b0*******` | 
            *
            * * prepend header bit 
@@ -732,7 +732,7 @@ namespace SimpleControl {
            * ### padding
            *
            * | address      | data         |
-           * | ============ | ============ |
+           * | ------------ | ------------ |
            * | `0b1111****` | `0b0000****` |
            *
            * * address padding 

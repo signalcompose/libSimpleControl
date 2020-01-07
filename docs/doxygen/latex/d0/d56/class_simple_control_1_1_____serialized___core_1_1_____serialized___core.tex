@@ -1005,13 +1005,37 @@ upper byte index = index -\/ (index -\/ 1) / 8\hypertarget{class_simple_control_
 
 
 lower byte index = index == 0 ? 0 \+: index -\/ (index -\/ 1) / 8 -\/ 1\hypertarget{class_simple_control_1_1_____serialized___core_1_1_____serialized___core_autotoc_md9}{}\doxyparagraph{header}\label{class_simple_control_1_1_____serialized___core_1_1_____serialized___core_autotoc_md9}
-$\vert$ address $\vert$ data $\vert$ $\vert$ ============ $\vert$ ============ $\vert$ $\vert$ {\ttfamily 0b1$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$} $\vert$ {\ttfamily 0b0$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$} $\vert$
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ address  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ data   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ address  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ data   }\\\cline{1-2}
+\endhead
+{\ttfamily 0b1$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$}  &{\ttfamily 0b0$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$}   \\\cline{1-2}
+\end{longtabu}
+
 
 
 \begin{DoxyItemize}
 \item prepend header bit -\/$>$ {\ttfamily byte $\vert$ header}
 \end{DoxyItemize}\hypertarget{class_simple_control_1_1_____serialized___core_1_1_____serialized___core_autotoc_md10}{}\doxyparagraph{padding}\label{class_simple_control_1_1_____serialized___core_1_1_____serialized___core_autotoc_md10}
-$\vert$ address $\vert$ data $\vert$ $\vert$ ============ $\vert$ ============ $\vert$ $\vert$ {\ttfamily 0b1111$\ast$$\ast$$\ast$$\ast$} $\vert$ {\ttfamily 0b0000$\ast$$\ast$$\ast$$\ast$} $\vert$
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ address  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ data   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ address  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ data   }\\\cline{1-2}
+\endhead
+{\ttfamily 0b1111$\ast$$\ast$$\ast$$\ast$}  &{\ttfamily 0b0000$\ast$$\ast$$\ast$$\ast$}   \\\cline{1-2}
+\end{longtabu}
+
 
 
 \begin{DoxyItemize}

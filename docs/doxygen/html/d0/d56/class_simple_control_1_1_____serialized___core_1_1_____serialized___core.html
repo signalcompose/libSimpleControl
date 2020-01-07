@@ -1643,13 +1643,23 @@ lower byte array index</h3>
 </div><!-- fragment --><p>lower byte index = index == 0 ? 0 : index - (index - 1) / 8 - 1</p>
 <h3><a class="anchor" id="autotoc_md9"></a>
 header</h3>
-<p>| address | data | | ============ | ============ | | <code>0b1*******</code> | <code>0b0*******</code> |</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">address  </th><th class="markdownTableHeadNone">data   </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>0b1*******</code>  </td><td class="markdownTableBodyNone"><code>0b0*******</code>   </td></tr>
+</table>
 <ul>
 <li>prepend header bit -&gt; <code>byte | header</code></li>
 </ul>
 <h3><a class="anchor" id="autotoc_md10"></a>
 padding</h3>
-<p>| address | data | | ============ | ============ | | <code>0b1111****</code> | <code>0b0000****</code> |</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">address  </th><th class="markdownTableHeadNone">data   </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>0b1111****</code>  </td><td class="markdownTableBodyNone"><code>0b0000****</code>   </td></tr>
+</table>
 <ul>
 <li>address padding -&gt; <code>MSByte | 0b11110000</code></li>
 <li>data padding -&gt; <code>MSByte &amp; 0b00001111</code> </li>
