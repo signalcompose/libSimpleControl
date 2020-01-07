@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B1C2A302314CE24002F34A5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C2A2F2314CE24002F34A5 /* main.cpp */; };
+		3BDA5A2E23C4DA0800803378 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA5A2D23C4DA0800803378 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +24,13 @@
 
 /* Begin PBXFileReference section */
 		3B1C2A2C2314CE24002F34A5 /* encode_decode_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = encode_decode_test; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B1C2A2F2314CE24002F34A5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		3B1C2A3A2314CE5D002F34A5 /* SimpleControl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SimpleControl; path = ../../../SimpleControl; sourceTree = "<group>"; };
+		3BDA5A2D23C4DA0800803378 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3BDA5A3023C4DA1F00803378 /* SimpleControl_Types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleControl_Types.hpp; sourceTree = "<group>"; };
+		3BDA5A3123C4DA1F00803378 /* Serialized_Arduino.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Serialized_Arduino.hpp; sourceTree = "<group>"; };
+		3BDA5A3223C4DA1F00803378 /* Serialized.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Serialized.hpp; sourceTree = "<group>"; };
+		3BDA5A3323C4DA1F00803378 /* Serialized_Core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Serialized_Core.hpp; sourceTree = "<group>"; };
+		3BDA5A3423C4DA1F00803378 /* SimpleControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleControl.hpp; sourceTree = "<group>"; };
+		3BDA5A3523C4DA1F00803378 /* Serialized_STL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Serialized_STL.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +47,8 @@
 		3B1C2A232314CE23002F34A5 = {
 			isa = PBXGroup;
 			children = (
-				3B1C2A3A2314CE5D002F34A5 /* SimpleControl */,
-				3B1C2A2E2314CE24002F34A5 /* SimpleControl_test */,
+				3BDA5A2F23C4DA1F00803378 /* SimpleControl */,
+				3BDA5A2C23C4DA0800803378 /* encode_decode_test */,
 				3B1C2A2D2314CE24002F34A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +61,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B1C2A2E2314CE24002F34A5 /* SimpleControl_test */ = {
+		3BDA5A2C23C4DA0800803378 /* encode_decode_test */ = {
 			isa = PBXGroup;
 			children = (
-				3B1C2A2F2314CE24002F34A5 /* main.cpp */,
+				3BDA5A2D23C4DA0800803378 /* main.cpp */,
 			);
-			path = SimpleControl_test;
+			path = encode_decode_test;
+			sourceTree = "<group>";
+		};
+		3BDA5A2F23C4DA1F00803378 /* SimpleControl */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA5A3023C4DA1F00803378 /* SimpleControl_Types.hpp */,
+				3BDA5A3123C4DA1F00803378 /* Serialized_Arduino.hpp */,
+				3BDA5A3223C4DA1F00803378 /* Serialized.hpp */,
+				3BDA5A3323C4DA1F00803378 /* Serialized_Core.hpp */,
+				3BDA5A3423C4DA1F00803378 /* SimpleControl.hpp */,
+				3BDA5A3523C4DA1F00803378 /* Serialized_STL.hpp */,
+			);
+			name = SimpleControl;
+			path = ../../../SimpleControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1C2A302314CE24002F34A5 /* main.cpp in Sources */,
+				3BDA5A2E23C4DA0800803378 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
