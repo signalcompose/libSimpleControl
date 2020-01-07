@@ -28,17 +28,17 @@ namespace SimpleControl{
    * @example Serialized_test/Serialized_test/main.cpp
    * this example tried below functions with `std :: array`, `std :: vector` and `std :: list`
    */
-  class Serialized_STL : 
-    public __Serialized_Core :: __Serialized_Core<
-        std :: uint8_t
-      , std :: size_t
-    > {
+  class Serialized_STL : public __Serialized_Core :: __Serialized_Core< std :: uint8_t, std :: size_t> 
+  {
 
     public:
+
     using __Serialized_Core :: __Serialized_Core;
     using __Serialized_Core :: copy_from;
     using __Serialized_Core :: copy_to;
     using __Serialized_Core :: operator=;
+
+    Serialized_STL( void ) : __Serialized_Core(0, 0, 0, 0, 0){}
 
 
     /**
@@ -56,7 +56,6 @@ namespace SimpleControl{
     Serialized_STL( const T& other ) : Serialized_STL() { 
       copy_from( other );
     }
-
 
     /**
      * @brief serial data copy function from any type
@@ -168,7 +167,7 @@ namespace SimpleControl{
      * @param[in] n     position of data octet
      * @return          const octet data, you don't change return value
      */
-    const value_type at( const size_type n ) const& {
+    const value_type& at( const size_type n ) const& {
 
       if( n >= SIZE )
         throw std :: out_of_range( "Serialized at const&" );

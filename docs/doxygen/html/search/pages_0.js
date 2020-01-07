@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['libsimplecontrol_55',['libSimpleControl',['../index.html',1,'']]]
+  ['libsimplecontrol_67',['libSimpleControl',['../index.html',1,'']]]
 ];

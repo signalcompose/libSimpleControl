@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B1C2A2C2314CE24002F34A5 /* SimpleControl_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleControl_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1C2A2C2314CE24002F34A5 /* encode_decode_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = encode_decode_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1C2A2F2314CE24002F34A5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3B1C2A3A2314CE5D002F34A5 /* SimpleControl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SimpleControl; path = ../../../SimpleControl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +51,7 @@
 		3B1C2A2D2314CE24002F34A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B1C2A2C2314CE24002F34A5 /* SimpleControl_test */,
+				3B1C2A2C2314CE24002F34A5 /* encode_decode_test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B1C2A2B2314CE23002F34A5 /* SimpleControl_test */ = {
+		3B1C2A2B2314CE23002F34A5 /* encode_decode_test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B1C2A332314CE24002F34A5 /* Build configuration list for PBXNativeTarget "SimpleControl_test" */;
+			buildConfigurationList = 3B1C2A332314CE24002F34A5 /* Build configuration list for PBXNativeTarget "encode_decode_test" */;
 			buildPhases = (
 				3B1C2A282314CE23002F34A5 /* Sources */,
 				3B1C2A292314CE23002F34A5 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = SimpleControl_test;
+			name = encode_decode_test;
 			productName = SimpleControl_test;
-			productReference = 3B1C2A2C2314CE24002F34A5 /* SimpleControl_test */;
+			productReference = 3B1C2A2C2314CE24002F34A5 /* encode_decode_test */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3B1C2A272314CE23002F34A5 /* Build configuration list for PBXProject "SimpleControl_test" */;
+			buildConfigurationList = 3B1C2A272314CE23002F34A5 /* Build configuration list for PBXProject "encode_decode_test" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,7 +110,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B1C2A2B2314CE23002F34A5 /* SimpleControl_test */,
+				3B1C2A2B2314CE23002F34A5 /* encode_decode_test */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +259,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B1C2A272314CE23002F34A5 /* Build configuration list for PBXProject "SimpleControl_test" */ = {
+		3B1C2A272314CE23002F34A5 /* Build configuration list for PBXProject "encode_decode_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B1C2A312314CE24002F34A5 /* Debug */,
@@ -268,7 +268,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B1C2A332314CE24002F34A5 /* Build configuration list for PBXNativeTarget "SimpleControl_test" */ = {
+		3B1C2A332314CE24002F34A5 /* Build configuration list for PBXNativeTarget "encode_decode_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B1C2A342314CE24002F34A5 /* Debug */,
